@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>Chat Bot</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <style>
+  #chatbox{
+  height:300px;
+  width:500px;
+  }
+  #contentwrap{
+  display:none;
+  }
+  </style>
+ <body>
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+   <ul class="navbar-nav">
+    <li class="nav-item active">
+      <h3 class="nav-link" href="#">Chat Bot</a>
+    </li>
+ </nav>
+  <nav class="navbar navbar-expand-sm bg-light navbar-light"> </nav>
+
+ 
+<div class="container ">
+  <div id="nickwrap">
+  <form id="setcustomer">
+  <label for="usr">Enter your Name: </label>
+  <input id="name" type="text">
+  <br>
+  <label for="usr">Enter your Mobile: </label>
+  <input id="mobile" type="number">
+  <br>
+  <input type="submit"></input>
+  </form>
+  </div>
+  <p id="existingcustomer" class="text-success"></p>
+  <div id="contentwrap">
+	<div id="chatwrap">
+	<div id="chatbox" class="card">
+		<ul id ="chatlist" class="list-group list-group-flush">
+			<li class="list-group-item">Welcome all</li>
+		</ul>
+	</div>
+	<form id = "send-message" ,width ="500px">
+		<input size="35" id="message""></input>
+		<input type="submit"></input>
+	</form>
+	</div>
+	<div id="users" class="card" >
+		<ul id ="userlist" class="list-group list-group-flush">
+			<li class="list-group-item">User List</li>
+		</ul>
+	</div>
+	</div>
+ </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ <script src="/socket.io/socket.io.js"></script>
+ <script>
+ jQuery(function($){
+	var socket=io.connect();
+	var $messageForm = $('#send-message');
+	var $messageBox = $('#message');
+	var listContainer = $('#chatlist');
+	
+	var $mobile =$('#mobile');
+	var $name = $('#name');
+	var $exist = $('#existingcustomer');
+	var $setcustomerform = $('#setcustomer');
+	var userlist = $('#userlist');
+	
+	$messageForm.submit(function(e){
+	e.preventDefault();
+	socket.emit('send message',$messageBox.val());
+	$messageBox.val('');
+	});
+	
+	socket.on('new message', function(data){
+	listContainer.append('<li class="list-group-item"> <b>' + data.name+ ':</b> ' + data.msg + '</li>');
+	});
+	
+	$setcustomerform.submit(function(e){
+	e.preventDefault();
+	socket.emit('user name',$name.val());
+	socket.emit('user mobile',$mobile.val() ,function(data){
+		if (data){
+			$('#nickwrap').hide();
+			$('#contentwrap').show();
+		} else {
+			$('#nickwrap').hide();
+			$('#contentwrap').show();
+			$exist.html('Congratulations for being our premium customer !!');
+		}
+	});
+	$name.val('');
+	});
+	
+	socket.on('usernames', function(data){
+	userlist.empty();
+	for (i=0;i<data.length;i++) {	
+		userlist.append('<li class="list-group-item"> ' + data[i] + '</li>');
+	}
+	
+	});
+	
+	
+	
+ });
+ </script>
+ 
+</body>
+</html>
