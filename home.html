@@ -16,42 +16,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-dark bg-dark d-none d-md-block	">
         <a class="navbar-brand" href="#">G2s Corner</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="#Name">Name</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Soups">Soups</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Starters">Starters</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Noodles">Noodles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Rice">Rice</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Indian">Indian</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Drinks">Drinks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Desserts">Desserts</a>
-                </li>
-            </ul>
-        </div>
     </nav>
-
-    <div class="container">
+    <div class="container pt-2">
         <div id="accordion">
             <div id="Name" class="card">
                 <div class="card-header">
@@ -149,6 +117,23 @@
                     </div>
                 </div>
             </div>
+            <div id="Cart" class="card">
+                <div class="card-header bg-success text-white">
+                    <div class="row">
+                        <button type="button" class="btn btn-success col" data-toggle="collapse" href="#cartlist">View Cart</button>
+                        <button type="button" class="btn btn-success col" disabled>
+                            Items <span class="badge badge-light text-success">4</span>
+                        </button>
+                        <button type="button" class="btn btn-success col" disabled>Rs.200</button>
+                    </div>
+                </div>
+                <div id="cartlist" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <!-- Bootstrap core JavaScript
