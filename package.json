@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A sample Chat app using Express 4",
   "main": "app.js",
-  "style": "switch.css",
   "scripts": {
     "start": "node app.js"
   },
