@@ -4,7 +4,6 @@
   "description": "A sample Chat app using Express 4",
   "main": "app.js",
   "styles": {
-    "starter-template.css",
     "switch.css"
   },
   "scripts": {
