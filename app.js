@@ -8,7 +8,7 @@ var express = require('express'),
 	
 const PORT = process.env.PORT || 3000;
 server.listen(PORT);
-
+app.use('/static', express.static('static'));
 app.get('/',function(req,res){
 	res.sendFile(__dirname + '/home.html');
 });
