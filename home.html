@@ -80,8 +80,33 @@
             </h5>
           </div>
           <div id="noodleslist" class="collapse" data-parent="#accordion">
-            <div class="card-body">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-8 bg-light">
+                  <img src="static/vfs.png">
+                  <h6 style='font-size:11px ; display:inline;'>Veg Schezwan Noodles</h6>
+                  <h6 style='font-size:10px' class="pl-4" >Rs. 150</h6>
+                </div>
+                <div class=" col " style="display:inline;margin-right:-10px; margin-left: -10px;" >
+                  <button type="button" class="quantity-left-minus btn-sm btn-danger" ><i class='fas fa-minus' style='font-size:10px;'></i></button>
+                  <input type="text" class=" qtyvalue form-control-sm" value="0" min="0" max="20" style="width: 33px ; height: 25px;">
+                  <button type="button" class="quantity-right-plus btn-sm btn-success "><i class='fas fa-plus' style='font-size:10px;'></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-8 bg-light">
+                  <img src="static/nvfs.png">
+                  <h6 style='font-size:11px ; display:inline;'>Chicken Schezwan Noodles</h6>
+                  <h6 style='font-size:10px' class="pl-4" >Rs. 150</h6>
+                </div>
+                <div class=" col " style="display:inline;margin-right:-10px; margin-left: -10px;" >
+                  <button type="button" class="quantity-left-minus btn-sm btn-danger" ><i class='fas fa-minus' style='font-size:10px;'></i></button>
+                  <input type="text" class="qtyvalue form-control-sm" value="0" min="0" max="20" style="width: 33px ; height: 25px;">
+                  <button type="button" class="quantity-right-plus btn-sm btn-success "><i class='fas fa-plus' style='font-size:10px;'></i></button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -166,5 +191,6 @@
       }
       });
     </script>
+    <script language="JavaScript" type="text/javascript" src="static/quantity.js"></script>
   </body>
 </html>
