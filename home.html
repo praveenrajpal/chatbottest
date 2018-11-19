@@ -192,13 +192,11 @@
         </div>
         <div id="cartlist" class="collapse" data-parent="#accordion">
             <div class="card-body">
-                View Cart sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat.
+                Your cart is empty :-)
             </div>
+
         </div>
     </div>
-</div>
 </div>
 <!-- Bootstrap core JavaScript
   ================================================== -->
@@ -213,33 +211,33 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 <script>
-      $("#vegcb").click(function(){
+$("#vegcb").click(function(){
       if ($(this).is(':checked')){
       $("#vegonly").css({"color": "#28a745","font-weight":"bold"});
       } else {
       $("#vegonly").css({"color": "#6c757d","font-weight":"normal" });
       }
       });
-
- $("#viewcart").click(function(){
+$("#viewcart").click(function(){
 togglecart();
 });
 $("#Name,#Soups,#Starters,#Noodles,#Rice,#Indian,#DrinksandDesserts").on('shown.bs.collapse', function () {
 fixcart();
 })
-  function togglecart() {
+function togglecart() {
   $("#Cart").toggleClass('fixed-bottom').toggleClass('showcart');
   $("#cartlist").toggleClass('collapse').toggleClass(' ');
   $("#Dummy").toggleClass('d-block').toggleClass('d-none');
   $("#Cart").show();
   }
-  function fixcart() {
+function fixcart() {
   $("#Cart").removeClass('showcart').addClass('fixed-bottom');
   $("#Dummy").removeClass('d-none').addClass('d-block');
   }
 
 
+
 </script>
-<script language="JavaScript" type="text/javascript" src="static/total.js"></script>
+<script language="JavaScript" type="text/javascript" src="static/totalincart.js"></script>
 </body>
 </html>
