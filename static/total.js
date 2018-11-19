@@ -9,9 +9,10 @@ $(document).ready(function() {
 	var productRow= $(this).parent().parent();
     actiontype = "plus";
     var quantity = parseInt(quantityRow.children('.qtyvalue').val());
-    quantityRow.children('.qtyvalue').val(quantity + 1);
-	
-    updatequantityandprice(actiontype,productRow);
+	var productprice = parseInt(productRow.children('.item').children('.itemprice').text());
+	quantity = quantity+1;
+    quantityRow.children('.qtyvalue').val(quantity);
+    updatequantityandprice(actiontype,productprice);
   });
 
   $('.quantity-left-minus').click(function(e) {
@@ -20,29 +21,29 @@ $(document).ready(function() {
 	var productRow= $(this).parent().parent();
     actiontype = "minus";
     var quantity = parseInt(quantityRow.children('.qtyvalue').val());
+	var productprice = parseInt(productRow.children('.item').children('.itemprice').text());
     if (quantity > 0) {
-      quantityRow.children('.qtyvalue').val(quantity - 1);
-      updatequantityandprice(actiontype,productRow);
+	  quantity = quantity-1;
+      quantityRow.children('.qtyvalue').val(quantity);
+      updatequantityandprice(actiontype,productprice);
     }
   });
 
-  function updatequantityandprice(actiontype,productRow) {
-    var quantity = parseInt($('#totalquantity').text());
-	//var productprice = parseInt(productRow.children('.item').children('.itemprice').text());
-	var productprice = parseInt(productRow.find('.itemprice').text());
+  function updatequantityandprice(actiontype,productprice) {
+    var totalquantity = parseInt($('#totalquantity').text());
     if (actiontype == "plus") {
-      quantity = quantity + 1;
-      $('#totalquantity').text(quantity);
-	  totalprice=productprice;
+      totalquantity = totalquantity + 1;
+      $('#totalquantity').text(totalquantity);
+	  totalprice=totalprice+productprice;
 	  $('#totalsum').html(function(){
-        return ("<span style='font-size:17px;font-family:sans-serif'>&#x20b9; </span>" + productprice);
+        return ("<span style='font-size:17px;font-family:sans-serif'>&#x20b9; </span>" + totalprice);
 		});
     } else {
-      quantity = quantity - 1;
-      $('#totalquantity').text(quantity);
-	  totalprice=productprice;
+      totalquantity = totalquantity - 1;
+      $('#totalquantity').text(totalquantity);
+	   totalprice=totalprice-productprice;
       $('#totalsum').html(function(){
-        return ("<span style='font-size:17px;font-family:sans-serif'>&#x20b9; </span>" + productprice);
+        return ("<span style='font-size:17px;font-family:sans-serif'>&#x20b9; </span>" + totalprice);
 		});
 	  
     }
