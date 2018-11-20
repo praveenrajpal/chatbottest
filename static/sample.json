@@ -1,26 +1,8 @@
 [
 	{
-		"Menu Header": "Soups",
-		"Menu Item": "Veg Monchow Soup",
-		"Item Price": "100",
-		"Veg Indicator": "Veg"
-	},
-	{
-		"Menu Header": "Soups",
-		"Menu Item": "Veg Sweet & Sour",
-		"Item Price": "100",
-		"Veg Indicator": "Veg"
-	},
-	{
-		"Menu Header": "Soups",
-		"Menu Item": "Chicken Monchow Soup",
-		"Item Price": "120",
-		"Veg Indicator": "NonVeg"
-	},
-	{
-		"Menu Header": "Soups",
-		"Menu Item": "Chicken Sweet & Sour",
-		"Item Price": "120",
-		"Veg Indicator": "NonVeg"
+		"MenuHeader": "Soups",
+		"MenuItem": "Veg Monchow Soup",
+		"ItemPrice": "100",
+		"VegIndicator": "Veg"
 	}
 ]
