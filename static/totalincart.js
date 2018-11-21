@@ -52,15 +52,25 @@ $(document).ready(function() {
   }
     function updatecartlist() {	
 		$("#cartlist").children().remove();
+		var empty = 0;
 		$('.qtyvalue').each(function(){
 			if ($(this).val() > 0 )  {			
 				var $itemtogoincart= $(this).parent().parent().parent();
 				var $clone = $itemtogoincart.clone();
-				$clone.appendTo('#cartlist');			
-			}
+				$clone.appendTo('#cartlist');
+				empty=1;
+			} 
 		});
+		if(empty==0){
+			$('#cartlist').append("<div class='card-body'>Your cart is empty <i class='far fa-smile' style='font-size:20px;'></i></div>");
+		}
 		$("#cartlist").children().find('.btn-sm').remove();
 		$('#cartlist').children().find('.qtyvalue').prop('disabled', true);
+		var checkouthtml = "<div class='container-fluid'><div class='row'><div class='col' style='display:inline;margin-right:-10px; margin-left: -10px;'><button id='checkout' type='button' class='btn btn-info '>Checkout <i class='fas fa-shopping-cart' style='font-size:10px;'></i></button></div></div></div>";
+		$('#cartlist').append(checkouthtml);
+		if(empty==0){
+			$('#cartlist').children().find('#checkout').prop('disabled', true);
+		}		
 		}
 		
 });
