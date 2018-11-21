@@ -73,6 +73,6 @@ $(document).ready(function() {
 		$('#cartlist').children().find('.qtyvalue').prop('disabled', true);	
 		}
 	$("#checkout").click(function(){
-     alert('Lo Aa gya');
+    // alert('Lo Aa gya');
       });		
 });
