@@ -74,5 +74,40 @@ $(document).ready(function() {
 		}
 	$("#checkout").click(function(){
     // alert('Lo Aa gya');
-      });		
+    var x=0;
+    var y=0;
+    var z=0;
+    var itnm=[];
+    var itqt=[];
+    var itemline={};
+    var itemlinejson={};
+    var order=[];
+    var orderjson="";
+    $("#cartlist").find('.itemname').each(function(){
+      itnm[y]=$(this).text();
+      y = y+1;
+    });
+
+    $("#cartlist").find('.qtyvalue').each(function(){      
+      itqt[x]=$(this).val();
+      x = x+1;
+      });
+    for (z = 0; z < x; z++){
+      itemline["ItemName"]=itnm[0] ;
+      itemline["ItemQty"]=itqt[0];
+      itemlinejson=JSON.stringify(itemline);
+      order[z]=itemlinejson;     
+    }
+    for (z = 0; z < x; z++){
+
+      orderjson=orderjson+order[z];
+      if(z<(x-1)){
+      orderjson=orderjson+",";
+      }
+             
+
+    }
+    var finaljson = "{"+"\"Name\": \""+$('#customername').val()+"\","+"\"Mobile\":\""+$('#mobile').val()+"\","+"\"Address\":\""+$('#address').val()+"\","+"\"OrderedItems\": ["+orderjson+"]}";
+    console.log(finaljson);  
+  });
 });
